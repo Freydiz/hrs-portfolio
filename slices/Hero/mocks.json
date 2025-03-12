@@ -1,0 +1,29 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"lastname": {
+				"__TYPE__": "FieldContent",
+				"value": "satisfied",
+				"type": "Text"
+			},
+			"firstname": {
+				"__TYPE__": "FieldContent",
+				"value": "lucky",
+				"type": "Text"
+			},
+			"tag_line": {
+				"__TYPE__": "FieldContent",
+				"value": "joined",
+				"type": "Text"
+			},
+			"middelname": {
+				"__TYPE__": "FieldContent",
+				"value": "few",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

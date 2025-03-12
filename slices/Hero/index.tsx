@@ -79,10 +79,10 @@ const Hero: React.FC<HeroProps> = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       ref={ref}
-      className="h-dvh px-4 py-10 md:px-6 md:py-14 lg:py-16"
+      className="px-4 py-10 md:px-6 md:py-14 lg:py-16"
     >
       <div className="mx-auto w-full max-w-7xl">
-        <div className="grid grid-cols-1 items-center md:grid-cols-2">
+        <div className="grid min-h-[70h] grid-cols-1 items-center md:grid-cols-2">
           <LogoCanvas />
 
           <div className="col-start-1 md:row-start-1">

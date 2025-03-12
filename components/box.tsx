@@ -1,5 +1,5 @@
-import React, { forwardRef } from "react";
 import clsx from "clsx";
+import React, { forwardRef } from "react";
 
 interface Props
   extends React.PropsWithChildren<React.HTMLAttributes<HTMLElement>> {
@@ -18,7 +18,7 @@ export const Container = forwardRef<HTMLElement, Props>(
         <div className="mx-auto w-full max-w-7xl">{children}</div>
       </Component>
     );
-  }
+  },
 );
 
 Container.displayName = "Container";

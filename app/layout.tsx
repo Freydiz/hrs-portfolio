@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
+
 import "./globals.css";
 import { Header } from "@/components";
 
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={urbanist.className}>
         <Header />
+
         {children}
       </body>
     </html>

@@ -1,5 +1,6 @@
-import { createClient } from "@/prismicio";
 import Link from "next/link";
+
+import { createClient } from "@/prismicio";
 
 export const Header: React.FC = async () => {
   const client = createClient();

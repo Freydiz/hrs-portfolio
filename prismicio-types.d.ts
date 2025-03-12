@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomepageDocumentDataSlicesSlice = HeroSlice;
+type HomepageDocumentDataSlicesSlice = ProjectsSlice | HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -304,6 +304,103 @@ type HeroSliceVariation = HeroSliceDefault;
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
+/**
+ * Primary content in *Projects → Default → Primary*
+ */
+export interface ProjectsSliceDefaultPrimary {
+  /**
+   * Heading field in *Projects → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Description field in *Projects → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Project Image field in *Projects → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.default.primary.project_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  project_image: prismic.ImageField<never>;
+
+  /**
+   * Github Link field in *Projects → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.default.primary.github_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  github_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Web Link field in *Projects → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.default.primary.web_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  web_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Default variation for Projects Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProjectsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Projects*
+ */
+type ProjectsSliceVariation = ProjectsSliceDefault;
+
+/**
+ * Projects Shared Slice
+ *
+ * - **API ID**: `projects`
+ * - **Description**: Projects
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectsSlice = prismic.SharedSlice<
+  "projects",
+  ProjectsSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -336,6 +433,10 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      ProjectsSlice,
+      ProjectsSliceDefaultPrimary,
+      ProjectsSliceVariation,
+      ProjectsSliceDefault,
     };
   }
 }

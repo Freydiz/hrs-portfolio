@@ -12,10 +12,11 @@ export const LogoCanvas: React.FC = () => {
         shadows
         gl={{ antialias: false }}
         dpr={[1, 1.5]}
-        camera={{ position: [0, 0, 25], fov: 30, near: 1, far: 40 }}
+        camera={{ position: [0, 0, 20], fov: 30, near: 1, far: 40 }}
       >
         <Suspense fallback={null}>
           <Logos />
+
           <ContactShadows
             position={[0, -3.5, 0]}
             opacity={0.65}
@@ -23,6 +24,7 @@ export const LogoCanvas: React.FC = () => {
             blur={1}
             far={9}
           />
+
           <Environment preset="lobby" />
         </Suspense>
       </Canvas>

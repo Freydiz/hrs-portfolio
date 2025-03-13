@@ -8,22 +8,22 @@ export const Logos: React.FC = () => {
       logo: "/logos/javascript.png",
     },
     {
-      position: [1, -0.75, 4],
+      position: [0.75, -0.5, 3],
       rate: 0.4,
       logo: "/logos/react.png",
     },
     {
-      position: [-1.4, 2, -4],
+      position: [-0.75, 1.5, -2],
       rate: 0.6,
       logo: "/logos/typescript.png",
     },
     {
-      position: [-0.8, -0.75, 5],
+      position: [-0.75, -0.5, 4],
       rate: 0.5,
       logo: "/logos/tailwind.png",
     },
     {
-      position: [1.6, 1.6, -4],
+      position: [1, 1.5, -2],
       rate: 0.7,
       logo: "/logos/next-logo.png",
     },

@@ -1,23 +1,14 @@
-import Link from "next/link";
-
 import { createClient } from "@/prismicio";
+
+import { NavBar } from "./nav-bar/nav-bar";
 
 export const Header: React.FC = async () => {
   const client = createClient();
   const settings = await client.getSingle("settings");
 
   return (
-    <header className="top-0 z-50 mx-auto max-w-7xl md:sticky md:top-4">
-      <nav>
-        <ul>
-          <li>
-            <Link href="/" aria-label="Home Page">
-              {settings.data.name}
-            </Link>
-          </li>
-          <li></li>
-        </ul>
-      </nav>
+    <header className="absolute top-0 z-50 mx-auto w-[100%] max-w-7xl md:sticky">
+      <NavBar settings={settings} />
     </header>
   );
 };

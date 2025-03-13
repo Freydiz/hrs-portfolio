@@ -71,7 +71,8 @@ export const LogosAnimated: React.FC<LogoProps> = (props) => {
           onPointerOut={handlePointerOut}
           visible={visible}
         >
-          <planeGeometry args={[3, 3]} />
+          <planeGeometry args={[1.5, 1.5]} />
+
           <meshStandardMaterial map={texture} transparent />
         </mesh>
       </Float>

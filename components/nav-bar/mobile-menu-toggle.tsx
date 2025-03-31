@@ -10,7 +10,7 @@ export const MobileMenuToggle: React.FC<Props> = (props) => {
     <button
       onClick={toggleMobileMenu}
       aria-label="Toggle mobile menu"
-      className="p-2 text-slate-900 focus:outline-none"
+      className="p-2 focus:outline-none"
     >
       <svg
         className="h-6 w-6"

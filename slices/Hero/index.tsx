@@ -5,8 +5,6 @@ import { SliceComponentProps } from "@prismicio/react";
 import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
 
-import { LogoCanvas } from "./_components";
-
 /**
  * Props for `Hero`.
  */
@@ -79,31 +77,25 @@ const Hero: React.FC<HeroProps> = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       ref={ref}
-      className="px-4 py-10 md:px-6 md:py-14 lg:py-16"
+      className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center py-12 text-center"
     >
-      <div className="mx-auto w-full max-w-7xl">
-        <div className="grid min-h-[70h] grid-cols-1 items-center md:grid-cols-2">
-          <LogoCanvas />
+      <div className="max-w-3xl space-y-6">
+        <h1
+          className="mb-8 text-[clamp(3rem,12vmin,20rem)] leading-none font-extrabold tracking-tighter"
+          aria-label={`${slice.primary.firstname} ${slice.primary.middelname} ${slice.primary.lastname}`}
+        >
+          <span className="inline-flex gap-2 whitespace-nowrap">
+            <span>{renderLetters(slice.primary.firstname, "first")}</span>
+            <span>{renderLetters(slice.primary.middelname, "middle")}</span>
+          </span>
+          <span className="text-primary -mt-[.2em] block whitespace-nowrap">
+            {renderLetters(slice.primary.lastname, "last")}
+          </span>
+        </h1>
 
-          <div className="col-start-1 md:row-start-1">
-            <h1
-              className="mb-8 text-[clamp(3rem,12vmin,20rem)] leading-none font-extrabold tracking-tighter"
-              aria-label={`${slice.primary.firstname} ${slice.primary.middelname} ${slice.primary.lastname}`}
-            >
-              <span className="inline-flex gap-2 whitespace-nowrap">
-                <span>{renderLetters(slice.primary.firstname, "first")}</span>
-                <span>{renderLetters(slice.primary.middelname, "middle")}</span>
-              </span>
-              <span className="-mt-[.2em] block whitespace-nowrap text-[var(--primary)]">
-                {renderLetters(slice.primary.lastname, "last")}
-              </span>
-            </h1>
-
-            <span className="tag-line block bg-gradient-to-tr from-[var(--secondary)] via-[var(--accent)] to-[var(--secondary)] bg-clip-text text-2xl font-bold tracking-[.2em] text-transparent uppercase md:text-4xl">
-              {slice.primary.tag_line}
-            </span>
-          </div>
-        </div>
+        <span className="tag-line from-secondary via-accent to-secondary block bg-gradient-to-tr bg-clip-text text-2xl font-bold tracking-[.2em] text-transparent uppercase md:text-4xl">
+          {slice.primary.tag_line}
+        </span>
       </div>
     </section>
   );

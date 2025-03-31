@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 
 import "./globals.css";
-import { Header } from "@/components";
+import { GridBackground, Header } from "@/components";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
@@ -11,7 +11,7 @@ const urbanist = Urbanist({
 
 export const metadata: Metadata = {
   title: "Henriette Riis Steinbach",
-  description: "Henriette Riis Steinbach is a Danish Frontend Developer,",
+  description: "Henriette Riis Steinbach | Frontend Developer",
 };
 
 export default function RootLayout({
@@ -21,12 +21,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={clsx(urbanist.className, "relative min-h-screen")}>
-        <Header />
-
-        {children}
-        <div className="background-gradient absolute inset-0 -z-50 max-h-screen" />
-        <div className="pointer-events-none absolute inset-0 -z-40 h-full bg-[url('/noisetexture.jpg')] opacity-20 mix-blend-soft-light"></div>
+      <body className={clsx(urbanist.className, "bg-background text-text")}>
+        <GridBackground />
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-1">{children}</main>
+        </div>
       </body>
     </html>
   );

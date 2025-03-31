@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 
@@ -10,7 +9,7 @@ export type ProjectsProps = SliceComponentProps<Content.ProjectsSlice>;
 /**
  * Component for "Projects" Slices.
  */
-const Projects: FC<ProjectsProps> = ({ slice }) => {
+const Projects: React.FC<ProjectsProps> = ({ slice }) => {
   return (
     <section
       data-slice-type={slice.slice_type}

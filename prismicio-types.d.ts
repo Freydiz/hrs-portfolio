@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomepageDocumentDataSlicesSlice = ProjectsSlice | HeroSlice;
+type HomepageDocumentDataSlicesSlice = AboutSlice | ProjectsSlice | HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -233,6 +233,58 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = HomepageDocument | SettingsDocument;
 
 /**
+ * Primary content in *About → Default → Primary*
+ */
+export interface AboutSliceDefaultPrimary {
+  /**
+   * Heading field in *About → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Body field in *About → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+}
+
+/**
+ * Default variation for About Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AboutSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *About*
+ */
+type AboutSliceVariation = AboutSliceDefault;
+
+/**
+ * About Shared Slice
+ *
+ * - **API ID**: `about`
+ * - **Description**: About
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutSlice = prismic.SharedSlice<"about", AboutSliceVariation>;
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -429,6 +481,10 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataNavItemItem,
       AllDocumentTypes,
+      AboutSlice,
+      AboutSliceDefaultPrimary,
+      AboutSliceVariation,
+      AboutSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

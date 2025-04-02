@@ -4,7 +4,11 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomepageDocumentDataSlicesSlice = AboutSlice | ProjectsSlice | HeroSlice;
+type HomepageDocumentDataSlicesSlice =
+  | SkillsSlice
+  | AboutSlice
+  | ProjectsSlice
+  | HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -233,28 +237,65 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = HomepageDocument | SettingsDocument;
 
 /**
+ * Item in *About → Default → Primary → Paragraph*
+ */
+export interface AboutSliceDefaultPrimaryParagraphItem {
+  /**
+   * Text field in *About → Default → Primary → Paragraph*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.paragraph[].text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *About → Default → Primary*
  */
 export interface AboutSliceDefaultPrimary {
   /**
    * Heading field in *About → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: about.default.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  heading: prismic.RichTextField;
+  heading: prismic.KeyTextField;
 
   /**
-   * Body field in *About → Default → Primary*
+   * Image field in *About → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: about.default.primary.body
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **API ID Path**: about.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  body: prismic.RichTextField;
+  image: prismic.ImageField<never>;
+
+  /**
+   * Paragraph field in *About → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.paragraph[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  paragraph: prismic.GroupField<
+    Simplify<AboutSliceDefaultPrimaryParagraphItem>
+  >;
+
+  /**
+   * Button field in *About → Default → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.default.primary.button
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button: prismic.LinkToMediaField<prismic.FieldState, never>;
 }
 
 /**
@@ -453,6 +494,48 @@ export type ProjectsSlice = prismic.SharedSlice<
   ProjectsSliceVariation
 >;
 
+/**
+ * Primary content in *Skills → Default → Primary*
+ */
+export interface SkillsSliceDefaultPrimary {
+  /**
+   * ReactIcon field in *Skills → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: skills.default.primary.reacticon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  reacticon: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Skills Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SkillsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SkillsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Skills*
+ */
+type SkillsSliceVariation = SkillsSliceDefault;
+
+/**
+ * Skills Shared Slice
+ *
+ * - **API ID**: `skills`
+ * - **Description**: Skills
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SkillsSlice = prismic.SharedSlice<"skills", SkillsSliceVariation>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -482,6 +565,7 @@ declare module "@prismicio/client" {
       SettingsDocumentDataNavItemItem,
       AllDocumentTypes,
       AboutSlice,
+      AboutSliceDefaultPrimaryParagraphItem,
       AboutSliceDefaultPrimary,
       AboutSliceVariation,
       AboutSliceDefault,
@@ -493,6 +577,10 @@ declare module "@prismicio/client" {
       ProjectsSliceDefaultPrimary,
       ProjectsSliceVariation,
       ProjectsSliceDefault,
+      SkillsSlice,
+      SkillsSliceDefaultPrimary,
+      SkillsSliceVariation,
+      SkillsSliceDefault,
     };
   }
 }

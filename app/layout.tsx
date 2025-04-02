@@ -23,7 +23,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={clsx(urbanist.className, "bg-background text-text")}>
         <GridBackground />
-        <div className="flex min-h-screen flex-col">
+
+        <div className="relative flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">{children}</main>
         </div>

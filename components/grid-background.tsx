@@ -77,8 +77,7 @@ export const GridBackground: React.FC = () => {
       {/* Grid overlay */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 h-full w-full"
-        style={{ background: "transparent" }}
+        className="absolute inset-0 h-full w-full bg-transparent"
       />
     </div>
   );

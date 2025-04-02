@@ -6,4 +6,5 @@ export const components = {
   about: dynamic(() => import("./About")),
   hero: dynamic(() => import("./Hero")),
   projects: dynamic(() => import("./Projects")),
+  skills: dynamic(() => import("./Skills")),
 };

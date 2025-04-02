@@ -17,9 +17,17 @@ const About: React.FC<AboutProps> = ({ slice }) => {
       id="about"
       className="bg-background/50 py-20"
     >
-      <h1>
-        Placeholder component for about (variation: {slice.variation}) Slices
-      </h1>
+      <div className="container mx-auto max-w-3xl px-4">
+        <div className="flex flex-col gap-4">
+          <h2 className="border-accent mb-6 max-w-fit border-b-2 pb-2 text-3xl font-bold">
+            {slice.primary.heading}
+          </h2>
+          {slice.primary.paragraph.map((item, index) => (
+            <p key={index}>{item.text}</p>
+          ))}
+          Button
+        </div>
+      </div>
     </section>
   );
 };

@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react';
 
-export const GridBackground: React.FC = () => {
+const GridBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
     const resizeCanvas = () => {
@@ -25,7 +25,7 @@ export const GridBackground: React.FC = () => {
 
       // Grid settings
       const gridSize = 40;
-      const gridColor = "rgba(87, 10, 87, 0.2)"; // Secondary color with opacity
+      const gridColor = 'rgba(87, 10, 87, 0.2)'; // Secondary color with opacity
 
       // Draw vertical lines
       for (let x = 0; x <= canvas.width; x += gridSize) {
@@ -48,7 +48,7 @@ export const GridBackground: React.FC = () => {
       }
 
       // Add some glowing dots at intersections (randomly)
-      ctx.fillStyle = "rgba(169, 16, 121, 0.5)"; // Accent color with opacity
+      ctx.fillStyle = 'rgba(169, 16, 121, 0.5)'; // Accent color with opacity
       for (let x = 0; x <= canvas.width; x += gridSize) {
         for (let y = 0; y <= canvas.height; y += gridSize) {
           if (Math.random() > 0.97) {
@@ -61,24 +61,23 @@ export const GridBackground: React.FC = () => {
       }
     };
 
-    window.addEventListener("resize", resizeCanvas);
+    window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener('resize', resizeCanvas);
     };
   }, []);
 
   return (
-    <div className="fixed inset-0 z-0 h-full w-full">
+    <div className='fixed inset-0 z-0 h-full w-full'>
       {/* Gradient background with animation */}
-      <div className="bg-gradient-animate from-primary via-background to-primary absolute inset-0 bg-gradient-to-br" />
+      <div className='bg-gradient-animate from-primary via-background to-primary absolute inset-0 bg-gradient-to-br' />
 
       {/* Grid overlay */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 h-full w-full bg-transparent"
-      />
+      <canvas ref={canvasRef} className='absolute inset-0 h-full w-full bg-transparent' />
     </div>
   );
 };
+
+export default GridBackground;

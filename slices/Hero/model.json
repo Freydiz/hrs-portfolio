@@ -39,6 +39,28 @@
             "label": "Tag line",
             "placeholder": ""
           }
+        },
+        "projects_button": {
+          "type": "Link",
+          "config": {
+            "label": "Projects button",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "contact_button": {
+          "type": "Link",
+          "config": {
+            "label": "Contact button",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
         }
       },
       "items": {}

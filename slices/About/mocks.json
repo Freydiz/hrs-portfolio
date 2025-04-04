@@ -38,29 +38,6 @@
 						]
 					}
 				]
-			},
-			"image": {
-				"origin": {
-					"id": "main",
-					"url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b",
-					"width": 3560,
-					"height": 5340
-				},
-				"url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b",
-				"width": 3560,
-				"height": 5340,
-				"edit": {
-					"zoom": 1,
-					"crop": {
-						"x": 0,
-						"y": 0
-					},
-					"background": "transparent"
-				},
-				"alt": "willing",
-				"credits": null,
-				"__TYPE__": "ImageContent",
-				"thumbnails": {}
 			}
 		},
 		"items": []

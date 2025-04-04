@@ -1,22 +1,113 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
-@theme {
-  --color-text: hsl(280 13% 95%);
-  --color-background: hsl(276 100% 2%);
-  --color-primary: hsl(277 95% 15%);
-  --color-secondary: hsl(300 79% 19%);
-  --color-accent: hsl(319 83% 36%);
-  --color-border: var(--color-primary);
-}
+@custom-variant dark (&:is(.dark *));
+
+@import 'tailwindcss';
 
 @layer base {
   :root {
-    --text: 280 13% 95%;
-    --background: 276 100% 2%;
-    --primary: 277 95% 15%;
-    --secondary: 300 79% 19%;
-    --accent: 319 83% 36%;
-    --border: var(--primary);
+    --background: 276 100% 95%;
+    --foreground: 276 5% 10%;
+    --card: 276 50% 90%;
+    --card-foreground: 276 5% 15%;
+    --popover: 276 100% 95%;
+    --popover-foreground: 276 100% 10%;
+    --primary: 276 45% 27%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 276 30% 70%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 238 30% 85%;
+    --muted-foreground: 276 5% 35%;
+    --accent: 238 30% 80%;
+    --accent-foreground: 276 5% 15%;
+    --destructive: 0 100% 30%;
+    --destructive-foreground: 276 5% 90%;
+    --border: 276 30% 50%;
+    --input: 276 30% 26%;
+    --ring: 276 45% 27%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 276 50% 10%;
+    --foreground: 276 5% 90%;
+    --card: 276 50% 10%;
+    --card-foreground: 276 5% 90%;
+    --popover: 276 50% 5%;
+    --popover-foreground: 276 5% 90%;
+    --primary: 276 45% 27%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 276 30% 20%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 238 30% 25%;
+    --muted-foreground: 276 5% 60%;
+    --accent: 238 30% 40%;
+    --accent-foreground: 276 5% 90%;
+    --destructive: 0 100% 30%;
+    --destructive-foreground: 276 5% 90%;
+    --border: 276 30% 26%;
+    --input: 276 30% 26%;
+    --ring: 276 45% 27%;
+    --radius: 0.5rem;
+  }
+}
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --radius: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animation-accordion-down: accordion-down 0.2s ease-out;
+  --animation-accordion-up: accordion-up 0.2s ease-out;
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -35,4 +126,47 @@
 .bg-gradient-animate {
   background-size: 200% 200%;
   animation: gradientShift 15s ease infinite;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
+  }
+}
+
+@layer utilities {
+  .animate-accordion-down {
+    animation: var(--animation-accordion-down);
+  }
+
+  .animate-accordion-up {
+    animation: var(--animation-accordion-up);
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.75s ease-out both;
+    animation-delay: 5s;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }

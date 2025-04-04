@@ -1,32 +1,33 @@
-import clsx from "clsx";
-import type { Metadata } from "next";
-import { Urbanist } from "next/font/google";
+import clsx from 'clsx';
+import type { Metadata } from 'next';
+import { Urbanist } from 'next/font/google';
 
-import "./globals.css";
-import { GridBackground, Header } from "@/components";
+import './globals.css';
+import GridBackground from '@/components/grid-background';
+import Header from '@/components/header';
 
 const urbanist = Urbanist({
-  subsets: ["latin"],
+  subsets: ['latin']
 });
 
 export const metadata: Metadata = {
-  title: "Henriette Riis Steinbach",
-  description: "Henriette Riis Steinbach | Frontend Developer",
+  title: 'Henriette Riis Steinbach',
+  description: 'Henriette Riis Steinbach | Frontend Developer'
 };
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={clsx(urbanist.className, "bg-background text-text")}>
+    <html lang='en' className='dark'>
+      <body className={clsx(urbanist.className)}>
         <GridBackground />
 
-        <div className="relative flex min-h-screen flex-col">
+        <div className='relative flex min-h-screen flex-col'>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className='flex-1'>{children}</main>
         </div>
       </body>
     </html>

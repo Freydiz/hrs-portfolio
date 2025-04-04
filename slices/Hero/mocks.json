@@ -22,6 +22,24 @@
 				"__TYPE__": "FieldContent",
 				"value": "few",
 				"type": "Text"
+			},
+			"projects_button": {
+				"key": "c6a1ad99-3dac-4196-8f7b-efac19a2c7ce",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "using"
+				}
+			},
+			"contact_button": {
+				"__TYPE__": "LinkContent",
+				"key": "66307c5c-08ca-4e25-a6ce-01099a04ff80",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com",
+					"text": "flower"
+				}
 			}
 		},
 		"items": []

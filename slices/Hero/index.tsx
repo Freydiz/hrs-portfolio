@@ -3,7 +3,7 @@
 import { Content, KeyTextField } from '@prismicio/client';
 import { SliceComponentProps } from '@prismicio/react';
 import { gsap } from 'gsap';
-import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 

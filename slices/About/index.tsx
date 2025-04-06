@@ -1,5 +1,9 @@
 import { Content } from '@prismicio/client';
 import { SliceComponentProps } from '@prismicio/react';
+import { Download } from 'lucide-react';
+import Link from 'next/link';
+
+import { Button } from '@/components/ui/button';
 
 /**
  * Props for `About`.
@@ -20,10 +24,17 @@ const About: React.FC<AboutProps> = ({ slice }) => {
       <div className='container mx-auto max-w-3xl px-4'>
         <div className='flex flex-col gap-4'>
           <h2 className='border-accent mb-6 max-w-fit border-b-2 pb-2 text-3xl font-bold'>{slice.primary.heading}</h2>
+
           {slice.primary.paragraph.map((item, index) => (
             <p key={index}>{item.text}</p>
           ))}
-          Button
+
+          <Button asChild className='mt-4 w-fit'>
+            <Link href='/resume.pdf' download>
+              <Download className='mr-2 h-4 w-4' />
+              Download CV
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

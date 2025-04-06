@@ -35,10 +35,10 @@
             }
           }
         },
-        "button": {
+        "cv_link": {
           "type": "Link",
           "config": {
-            "label": "Button",
+            "label": "Cv link",
             "placeholder": "",
             "select": "media",
             "allowText": true

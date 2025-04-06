@@ -252,14 +252,14 @@ export interface AboutSliceDefaultPrimary {
   paragraph: prismic.GroupField<Simplify<AboutSliceDefaultPrimaryParagraphItem>>;
 
   /**
-   * Button field in *About → Default → Primary*
+   * Cv link field in *About → Default → Primary*
    *
    * - **Field Type**: Link to Media
    * - **Placeholder**: *None*
-   * - **API ID Path**: about.default.primary.button
+   * - **API ID Path**: about.default.primary.cv_link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  button: prismic.LinkToMediaField<prismic.FieldState, never>;
+  cv_link: prismic.LinkToMediaField<prismic.FieldState, never>;
 }
 
 /**

@@ -3,19 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"button": {
-				"key": "2f1e46b8-40a4-46a9-92f2-304f4ee3e8e4",
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "FileLink",
-					"id": "mock_Media_link",
-					"kind": "file",
-					"name": "mock_name",
-					"url": "https://source.unsplash.com/daily",
-					"size": "0",
-					"text": "straw"
-				}
-			},
 			"heading": {
 				"__TYPE__": "FieldContent",
 				"value": "plastic",
@@ -38,6 +25,19 @@
 						]
 					}
 				]
+			},
+			"cv_link": {
+				"key": "e115e6f6-4e22-4d17-b5f0-480f1255f12e",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "FileLink",
+					"id": "mock_Media_link",
+					"kind": "file",
+					"name": "mock_name",
+					"url": "https://source.unsplash.com/daily",
+					"size": "0",
+					"text": "split"
+				}
 			}
 		},
 		"items": []

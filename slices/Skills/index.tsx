@@ -1,5 +1,5 @@
-import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { Content } from '@prismicio/client';
+import { SliceComponentProps } from '@prismicio/react';
 
 /**
  * Props for `Skills`.
@@ -11,10 +11,7 @@ export type SkillsProps = SliceComponentProps<Content.SkillsSlice>;
  */
 const Skills: React.FC<SkillsProps> = ({ slice }) => {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
+    <section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
       Placeholder component for skills (variation: {slice.variation}) Slices
     </section>
   );

@@ -23,7 +23,9 @@ export const useDotAnimation = ({ canvasRef, containerRef, dots, dotColor, dotSi
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const { width, height } = container.getBoundingClientRect();
+    const width = container.offsetWidth;
+    const height = container.offsetHeight;
+
     const resolvedDotColor = getCssVariable(dotColor, 'rgba(169, 16, 121, 0.5)');
 
     const animate = () => {

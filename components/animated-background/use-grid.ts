@@ -18,7 +18,9 @@ export const useGrid = ({ canvasRef, containerRef, gridSize, gridColor }: UseGri
     const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
-    const { width, height } = container.getBoundingClientRect();
+    const width = container.offsetWidth;
+    const height = container.offsetHeight;
+
     const color = getCssVariable(gridColor, 'rgba(87, 10, 87, 0.2)');
 
     ctx.clearRect(0, 0, width, height);

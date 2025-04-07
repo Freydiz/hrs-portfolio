@@ -62,6 +62,6 @@ const AnimatedBackground: React.FC<Props> = memo((props) => {
   );
 });
 
-AnimatedBackground.displayName = 'GridBackground';
+AnimatedBackground.displayName = 'AnimatedBackground';
 
 export default AnimatedBackground;

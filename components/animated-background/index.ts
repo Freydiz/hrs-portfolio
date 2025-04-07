@@ -1,1 +1,1 @@
-export * from './animated-background';
+export { AnimatedBackground } from './animated-background';

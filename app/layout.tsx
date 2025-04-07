@@ -3,8 +3,7 @@ import type { Metadata } from 'next';
 import { Urbanist } from 'next/font/google';
 
 import './globals.css';
-import GridBackground from '@/components/grid-background';
-import Header from '@/components/header';
+import { AnimatedBackground, Header } from '@/components/';
 
 const urbanist = Urbanist({
   subsets: ['latin']
@@ -23,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang='en' className='dark'>
       <body className={clsx(urbanist.className)}>
-        <GridBackground />
+        <AnimatedBackground />
 
         <div className='relative flex min-h-screen flex-col'>
           <Header />

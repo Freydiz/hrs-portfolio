@@ -34,8 +34,7 @@ export const useResizeHandler = ({
     const container = containerRef.current;
     if (!container) return;
 
-    const width = container.offsetWidth;
-    const height = container.offsetHeight;
+    const { width, height } = container.getBoundingClientRect();
 
     const updateCanvas = (canvas: HTMLCanvasElement | null) => {
       if (!canvas) return;

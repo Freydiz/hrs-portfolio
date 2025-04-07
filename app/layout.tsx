@@ -3,7 +3,8 @@ import type { Metadata } from 'next';
 import { Urbanist } from 'next/font/google';
 
 import './globals.css';
-import { AnimatedBackground, Header } from '@/components/';
+import { AnimatedBackground } from '@/components/';
+import { Header } from '@/components/header';
 
 const urbanist = Urbanist({
   subsets: ['latin']

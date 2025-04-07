@@ -15,7 +15,7 @@ interface Props {
   className?: string;
 }
 
-export const AnimatedBackground: React.FC<Props> = memo((props) => {
+const AnimatedBackground: React.FC<Props> = memo((props) => {
   const {
     gridSize = 40,
     gridColor = '--color-secondary/20',
@@ -63,3 +63,5 @@ export const AnimatedBackground: React.FC<Props> = memo((props) => {
 });
 
 AnimatedBackground.displayName = 'GridBackground';
+
+export default AnimatedBackground;

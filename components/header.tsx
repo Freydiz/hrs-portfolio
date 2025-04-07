@@ -2,7 +2,7 @@ import { createClient } from '@/prismicio';
 
 import { NavBar } from './nav-bar';
 
-export const Header: React.FC = async () => {
+const Header: React.FC = async () => {
   const client = createClient();
   const settings = await client.getSingle('settings');
 
@@ -12,3 +12,5 @@ export const Header: React.FC = async () => {
     </header>
   );
 };
+
+export default Header;

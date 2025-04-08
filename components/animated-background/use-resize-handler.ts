@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useRef } from 'react';
 
 import { generateDots, Dot } from './generate-dots';
 
@@ -30,6 +30,8 @@ export const useResizeHandler = ({
   setDots,
   setDimensions
 }: UseResizeHandlerProps) => {
+  const lastSize = useRef<{ width: number; height: number }>({ width: 0, height: 0 });
+
   return useCallback(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -53,10 +55,10 @@ export const useResizeHandler = ({
     updateCanvas(gridCanvasRef.current);
     updateCanvas(dotCanvasRef.current);
 
-    const widthDiff = Math.abs(dimensions.width - width);
-    const heightDiff = Math.abs(dimensions.height - height);
+    const hasSizeChanged = lastSize.current.width !== width || lastSize.current.height !== height;
 
-    if (widthDiff > gridSize || heightDiff > gridSize) {
+    if (hasSizeChanged || dimensions.width === 0 || dimensions.height === 0) {
+      lastSize.current = { width, height };
       setDots(generateDots({ width, height, gridSize, dotDensity }));
       setDimensions({ width, height });
     }

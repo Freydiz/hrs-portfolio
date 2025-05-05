@@ -3,9 +3,9 @@
 import { Content, KeyTextField } from '@prismicio/client';
 import { SliceComponentProps } from '@prismicio/react';
 import { gsap } from 'gsap';
-import { Github, Linkedin, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
+import { TbBrandLinkedin, TbBrandGithub, TbMail } from 'react-icons/tb';
 
 import { Button } from '@/components/ui/button';
 
@@ -111,7 +111,7 @@ const Hero: React.FC<HeroProps> = ({ slice }) => {
           <div className='animate-fade-in-up flex translate-y-5 items-center justify-center gap-4 opacity-0'>
             <Button variant='ghost' size='icon' asChild>
               <Link href='https://github.com/Freydiz' target='_blank' rel='noopener noreferrer'>
-                <Github className='h-5 w-5' />
+                <TbBrandGithub />
 
                 <span className='sr-only'>GitHub</span>
               </Link>
@@ -123,7 +123,7 @@ const Hero: React.FC<HeroProps> = ({ slice }) => {
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                <Linkedin className='h-5 w-5' />
+                <TbBrandLinkedin />
 
                 <span className='sr-only'>LinkedIn</span>
               </Link>
@@ -131,7 +131,7 @@ const Hero: React.FC<HeroProps> = ({ slice }) => {
 
             <Button variant='ghost' size='icon' asChild>
               <Link href='mailto:mail@henrietteriis.dk'>
-                <Mail className='h-5 w-5' />
+                <TbMail />
 
                 <span className='sr-only'>Email</span>
               </Link>

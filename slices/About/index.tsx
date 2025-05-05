@@ -1,7 +1,7 @@
 import { Content } from '@prismicio/client';
 import { SliceComponentProps } from '@prismicio/react';
-import { Download } from 'lucide-react';
 import Link from 'next/link';
+import { LuDownload } from 'react-icons/lu';
 
 import { Button } from '@/components/ui/button';
 
@@ -31,7 +31,7 @@ const About: React.FC<AboutProps> = ({ slice }) => {
 
           <Button asChild className='mt-4 w-fit'>
             <Link href='/resume.pdf' download>
-              <Download className='mr-2 h-4 w-4' />
+              <LuDownload className='mr-2 h-4 w-4' />
               Download CV
             </Link>
           </Button>

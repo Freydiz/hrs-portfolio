@@ -100,17 +100,24 @@
   }
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+@layer base {
+  * {
+    @apply border-border;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* This is a custom gradient animation for the background */
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;
@@ -128,45 +135,37 @@
   animation: gradientShift 15s ease infinite;
 }
 
-@layer base {
-  * {
-    @apply border-border;
+/* This is a custom animation for fading in elements */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-
-  body {
-    @apply bg-background text-foreground;
-    font-feature-settings:
-      'rlig' 1,
-      'calt' 1;
-  }
-}
-
-@layer utilities {
-  .animate-accordion-down {
-    animation: var(--animation-accordion-down);
-  }
-
-  .animate-accordion-up {
-    animation: var(--animation-accordion-up);
-  }
-
-  .animate-fade-in-up {
-    animation: fadeInUp 0.75s ease-out both;
-    animation-delay: 5s;
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-html {
-  scroll-behavior: smooth;
+.animate-fade-in-up {
+  animation: fadeInUp 0.75s ease-out both;
+  animation-delay: 5s;
+}
+
+/* Marquee animation for skills */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation-direction: reverse;
 }

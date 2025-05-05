@@ -12,12 +12,42 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "reacticon": {
-          "type": "Image",
+        "heading": {
+          "type": "Text",
           "config": {
-            "label": "ReactIcon",
-            "constraint": {},
-            "thumbnails": []
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "text": {
+          "type": "Text",
+          "config": {
+            "label": "Text",
+            "placeholder": ""
+          }
+        },
+        "skills": {
+          "type": "Group",
+          "config": {
+            "label": "Skills",
+            "repeat": true,
+            "fields": {
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "Name",
+                  "placeholder": ""
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
           }
         }
       },

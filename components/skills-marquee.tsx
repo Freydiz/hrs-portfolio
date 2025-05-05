@@ -65,37 +65,29 @@ const SkillsMarquee: React.FC = () => {
   ];
 
   return (
-    <div className='container mx-auto max-w-3xl px-4'>
-      <h2 className='mb-4 text-3xl font-bold'>Skills & Technologies</h2>
-      <p>
-        worked with a variety of technologies in the web development world. Here a showcase of the skills and tools
-        proficient with:
-      </p>
-
-      <div className='container mx-auto max-w-3xl space-y-16 px-4'>
-        {skillRows.map((row, rowIndex) => (
-          <div key={rowIndex} className='relative flex overflow-hidden'>
-            <div
-              className={clsx(
-                `animate-marquee ${row.direction === 'right' ? 'animate-marquee-reverse' : ''} flex w-[200%] gap-8`
-              )}
-              style={{ animationDuration: `${row.speed}s` }}
-            >
-              {/* Double the skills to ensure continuous loop */}
-              {[...row.skills, ...row.skills, ...row.skills, ...row.skills].map((skill, skillIndex) => (
-                <div
-                  key={`${rowIndex}-${skillIndex}`}
-                  className='bg-primary/5 dark:bg-primary/10 flex flex-shrink-0 items-center justify-center rounded-full px-6 py-3 whitespace-nowrap'
-                >
-                  <div className='text-primary mr-2'>{skill.icon}</div>
-                  <span className='font-medium whitespace-nowrap'>{skill.name}</span>
-                </div>
-              ))}
-            </div>
+    <>
+      {skillRows.map((row, rowIndex) => (
+        <div key={rowIndex} className='relative flex overflow-hidden'>
+          <div
+            className={clsx(
+              `animate-marquee ${row.direction === 'right' ? 'animate-marquee-reverse' : ''} flex w-[200%] gap-8`
+            )}
+            style={{ animationDuration: `${row.speed}s` }}
+          >
+            {/* Double the skills to ensure continuous loop */}
+            {[...row.skills, ...row.skills, ...row.skills, ...row.skills].map((skill, skillIndex) => (
+              <div
+                key={`${rowIndex}-${skillIndex}`}
+                className='bg-primary/5 dark:bg-primary/10 flex flex-shrink-0 items-center justify-center rounded-full px-6 py-3 whitespace-nowrap'
+              >
+                <div className='text-primary mr-2'>{skill.icon}</div>
+                <span className='font-medium whitespace-nowrap'>{skill.name}</span>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
+      ))}
+    </>
   );
 };
 

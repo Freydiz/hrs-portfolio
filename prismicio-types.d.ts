@@ -456,18 +456,63 @@ type ProjectsSliceVariation = ProjectsSliceDefault;
 export type ProjectsSlice = prismic.SharedSlice<'projects', ProjectsSliceVariation>;
 
 /**
+ * Item in *Skills → Default → Primary → Skills*
+ */
+export interface SkillsSliceDefaultPrimarySkillsItem {
+  /**
+   * Name field in *Skills → Default → Primary → Skills*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: skills.default.primary.skills[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Image field in *Skills → Default → Primary → Skills*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: skills.default.primary.skills[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
  * Primary content in *Skills → Default → Primary*
  */
 export interface SkillsSliceDefaultPrimary {
   /**
-   * ReactIcon field in *Skills → Default → Primary*
+   * Heading field in *Skills → Default → Primary*
    *
-   * - **Field Type**: Image
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: skills.default.primary.reacticon
-   * - **Documentation**: https://prismic.io/docs/field#image
+   * - **API ID Path**: skills.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  reacticon: prismic.ImageField<never>;
+  heading: prismic.KeyTextField;
+
+  /**
+   * Text field in *Skills → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: skills.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+
+  /**
+   * Skills field in *Skills → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: skills.default.primary.skills[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  skills: prismic.GroupField<Simplify<SkillsSliceDefaultPrimarySkillsItem>>;
 }
 
 /**
@@ -529,6 +574,7 @@ declare module '@prismicio/client' {
       ProjectsSliceVariation,
       ProjectsSliceDefault,
       SkillsSlice,
+      SkillsSliceDefaultPrimarySkillsItem,
       SkillsSliceDefaultPrimary,
       SkillsSliceVariation,
       SkillsSliceDefault

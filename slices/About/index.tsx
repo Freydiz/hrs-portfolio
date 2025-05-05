@@ -30,7 +30,7 @@ const About: React.FC<AboutProps> = ({ slice }) => {
           ))}
 
           <Button asChild className='mt-4 w-fit'>
-            <Link href='/resume.pdf' download>
+            <Link href='/resume.pdf' download target='_blank'>
               <LuDownload className='mr-2 h-4 w-4' />
               Download CV
             </Link>

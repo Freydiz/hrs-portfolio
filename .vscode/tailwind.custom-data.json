@@ -1,0 +1,45 @@
+{
+  "version": 1.1,
+  "atDirectives": [
+    {
+      "name": "@apply",
+      "description": "Inlines existing Tailwind utility classes into custom CSS."
+    },
+    {
+      "name": "@tailwind",
+      "description": "Injects Tailwind-generated styles from a compatibility stylesheet."
+    },
+    {
+      "name": "@variant",
+      "description": "Applies a Tailwind variant within custom CSS."
+    },
+    {
+      "name": "@reference",
+      "description": "Makes another stylesheet available to Tailwind without duplicating its CSS."
+    },
+    {
+      "name": "@theme",
+      "description": "Defines Tailwind CSS v4 theme variables."
+    },
+    {
+      "name": "@custom-variant",
+      "description": "Registers a custom Tailwind CSS variant."
+    },
+    {
+      "name": "@utility",
+      "description": "Registers a custom Tailwind CSS utility."
+    },
+    {
+      "name": "@source",
+      "description": "Configures Tailwind CSS source detection."
+    },
+    {
+      "name": "@plugin",
+      "description": "Loads a Tailwind CSS plugin."
+    },
+    {
+      "name": "@config",
+      "description": "Loads a legacy Tailwind CSS configuration file."
+    }
+  ]
+}

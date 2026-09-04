@@ -18,10 +18,10 @@ interface Props {
 const AnimatedBackground: React.FC<Props> = memo((props) => {
   const {
     gridSize = 40,
-    gridColor = '--color-secondary/20',
-    dotColor = '--color-accent',
-    dotSize = 6,
-    dotDensity = 0.03,
+    gridColor = 'rgba(104, 70, 125, 0.12)',
+    dotColor = 'rgba(211, 128, 255, 0.72)',
+    dotSize = 4,
+    dotDensity = 0.025,
     className = ''
   } = props;
 
@@ -55,9 +55,10 @@ const AnimatedBackground: React.FC<Props> = memo((props) => {
 
   return (
     <div ref={containerRef} className={`pointer-events-none fixed inset-0 z-0 h-full w-full ${className}`}>
-      <div className='from-primary via-background to-primary animate-gradient absolute inset-0 bg-gradient-to-br' />
+      <div className='absolute inset-0 bg-[radial-gradient(circle_at_75%_12%,hsl(var(--primary)/0.34),transparent_34%),radial-gradient(circle_at_8%_72%,hsl(var(--accent)/0.06),transparent_30%),linear-gradient(135deg,hsl(var(--background)),hsl(276_52%_8%))]' />
       <canvas ref={gridCanvasRef} className='pointer-events-none absolute inset-0 h-full w-full bg-transparent' />
       <canvas ref={dotCanvasRef} className='pointer-events-none absolute inset-0 h-full w-full bg-transparent' />
+      <div className='absolute inset-0 bg-[linear-gradient(to_bottom,hsl(var(--background)/0.08),hsl(var(--background)/0.32))]' />
     </div>
   );
 });

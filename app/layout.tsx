@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className='dark'>
-      <body className={clsx(urbanist.className)}>
+      <body className={clsx(urbanist.className, 'overflow-x-clip antialiased')}>
         <AnimatedBackground />
 
         <div className='relative flex min-h-screen flex-col'>

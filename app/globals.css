@@ -3,8 +3,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@import 'tailwindcss';
-
 @layer base {
   :root {
     --background: 276 100% 95%;
@@ -29,20 +27,20 @@
     --radius: 0.5rem;
   }
   .dark {
-    --background: 276 50% 10%;
+    --background: 272 48% 7%;
     --foreground: 276 5% 90%;
     --card: 276 50% 10%;
     --card-foreground: 276 5% 90%;
     --popover: 276 50% 5%;
     --popover-foreground: 276 5% 90%;
-    --primary: 276 45% 27%;
+    --primary: 274 62% 28%;
     --primary-foreground: 0 0% 100%;
     --secondary: 276 30% 20%;
     --secondary-foreground: 0 0% 100%;
     --muted: 238 30% 25%;
     --muted-foreground: 276 5% 60%;
-    --accent: 238 30% 40%;
-    --accent-foreground: 276 5% 90%;
+    --accent: 281 88% 72%;
+    --accent-foreground: 272 48% 7%;
     --destructive: 0 100% 30%;
     --destructive-foreground: 276 5% 90%;
     --border: 276 30% 26%;
@@ -107,9 +105,15 @@
 
   body {
     @apply bg-background text-foreground;
+    min-width: 320px;
     font-feature-settings:
       'rlig' 1,
       'calt' 1;
+  }
+
+  ::selection {
+    color: hsl(var(--background));
+    background: hsl(var(--accent));
   }
 }
 
@@ -117,55 +121,17 @@ html {
   scroll-behavior: smooth;
 }
 
-/* This is a custom gradient animation for the background */
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
 
-.bg-gradient-animate {
-  background-size: 200% 200%;
-  animation: gradientShift 15s ease infinite;
-}
-
-/* This is a custom animation for fading in elements */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.75s ease-out both;
-  animation-delay: 5s;
-}
-
-/* Marquee animation for skills */
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-.animate-marquee {
-  animation: marquee linear infinite;
-}
-
-.animate-marquee-reverse {
-  animation-direction: reverse;
 }

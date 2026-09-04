@@ -7,8 +7,8 @@ const Header: React.FC = async () => {
   const settings = await client.getSingle('settings');
 
   return (
-    <header className='border-primary bg-primary/80 sticky top-0 z-50 w-full border-b'>
-      <NavBar settings={settings} />
+    <header className='bg-background/75 sticky top-0 z-50 w-full border-b border-white/10 backdrop-blur-xl'>
+      <NavBar siteName={settings.data.name ?? undefined} />
     </header>
   );
 };

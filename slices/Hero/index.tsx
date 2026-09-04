@@ -71,7 +71,7 @@ const Hero: React.FC<HeroProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      id='projects'
+      id='hero'
       ref={ref}
       className='flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center py-12 text-center'
     >

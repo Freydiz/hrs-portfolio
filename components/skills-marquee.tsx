@@ -66,8 +66,8 @@ const SkillsMarquee: React.FC = () => {
 
   return (
     <>
-      {skillRows.map((row, rowIndex) => (
-        <div key={rowIndex} className='relative flex overflow-hidden'>
+      {skillRows.map((row) => (
+        <div key={row.speed} className='relative flex overflow-hidden'>
           <div
             className={clsx(
               `animate-marquee ${row.direction === 'right' ? 'animate-marquee-reverse' : ''} flex w-[200%] gap-8`
@@ -77,7 +77,7 @@ const SkillsMarquee: React.FC = () => {
             {/* Double the skills to ensure continuous loop */}
             {[...row.skills, ...row.skills, ...row.skills, ...row.skills].map((skill, skillIndex) => (
               <div
-                key={`${rowIndex}-${skillIndex}`}
+                key={`${skill.name}-${Math.floor(skillIndex / row.skills.length)}`}
                 className='bg-primary/5 dark:bg-primary/10 flex flex-shrink-0 items-center justify-center rounded-full px-6 py-3 whitespace-nowrap'
               >
                 <div className='text-primary mr-2'>{skill.icon}</div>
